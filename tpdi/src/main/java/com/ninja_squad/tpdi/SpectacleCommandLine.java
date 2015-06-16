@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 import com.ninja_squad.controller.SpectacleController;
+import com.ninja_squad.dao.SpectacleDAO;
 
 public class SpectacleCommandLine {
 
@@ -21,7 +22,8 @@ public class SpectacleCommandLine {
 	public static void main(String[] args) throws IOException {
 		boolean quit = false;
 		Scanner in = new Scanner(System.in);
-		SpectacleController spectacleController = new SpectacleController();
+		SpectacleDAO dao = new SpectacleDAO();
+		SpectacleController spectacleController = new SpectacleController(dao);
 
 		while (!quit) {
 			System.out.print(">");

@@ -7,8 +7,12 @@ import java.util.List;
 import com.ninja_squad.dao.SpectacleDAO;
 
 public class SpectacleController {
-
-	SpectacleDAO dao = new SpectacleDAO();
+	SpectacleDAO dao;
+	
+	public SpectacleController( SpectacleDAO dao){
+		this.dao = dao;
+	}
+	
 
 	public List<String> findSpectacle(String spectacleName) throws IOException {
 		spectacleName = getSpectacle(spectacleName);
