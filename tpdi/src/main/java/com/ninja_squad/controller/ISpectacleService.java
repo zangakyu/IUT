@@ -1,4 +1,4 @@
-package com.ninja_squad.tpdi;
+package com.ninja_squad.controller;
 
 import java.io.IOException;
 import java.util.List;

@@ -10,18 +10,18 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.ninja_squad.controller.SpectacleController;
+import com.ninja_squad.controller.SpectacleService;
 import com.ninja_squad.dao.SpectacleDAO;
 
 public class SpectacleTest {
 	
 	public SpectacleDAO mockedSpectacleDAO;
-	public SpectacleController spectacleController;
+	public SpectacleService spectacleController;
 	
 	@Before
 	public void init() {
 		mockedSpectacleDAO = mock(SpectacleDAO.class);
-		spectacleController = new SpectacleController(mockedSpectacleDAO);
+		spectacleController = new SpectacleService(mockedSpectacleDAO);
 	}
 
 	@Test
@@ -37,7 +37,7 @@ public class SpectacleTest {
 	@Test
 	public void testControllerCreateSpectacleMethodCalled() throws IOException{
 		SpectacleDAO mockedSpectacleDAO = mock(SpectacleDAO.class);
-		SpectacleController spectacleController = new SpectacleController(mockedSpectacleDAO);
+		SpectacleService spectacleController = new SpectacleService(mockedSpectacleDAO);
 		
 		spectacleController.createSpectale("créer spectacle");
 		verify(mockedSpectacleDAO).writeSpectacle("spectacle");
@@ -46,7 +46,7 @@ public class SpectacleTest {
 	@Test
 	public void testControllerCreateSpectacleReturnsTrue() throws IOException{
 		SpectacleDAO mockedSpectacleDAO = mock(SpectacleDAO.class);
-		SpectacleController spectacleController = new SpectacleController(mockedSpectacleDAO);
+		SpectacleService spectacleController = new SpectacleService(mockedSpectacleDAO);
 		
 		assertTrue(spectacleController.createSpectale("créer spectacle"));
 	}

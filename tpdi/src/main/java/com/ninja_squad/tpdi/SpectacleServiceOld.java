@@ -3,12 +3,13 @@ package com.ninja_squad.tpdi;
 import java.io.IOException;
 import java.util.List;
 
-import com.ninja_squad.controller.SpectacleController;
+import com.ninja_squad.controller.ISpectacleService;
+import com.ninja_squad.controller.SpectacleService;
 import com.ninja_squad.dao.SpectacleDAO;
 
-public class SpectacleService implements ISpectacleService {
+public class SpectacleServiceOld implements ISpectacleService {
 	SpectacleDAO dao = new SpectacleDAO();
-	SpectacleController spectacleController = new SpectacleController(dao);
+	SpectacleService spectacleController = new SpectacleService(dao);
 	
 	public List<String> findSpectacle(String spectacleName) throws IOException {
 		System.out.println("début de transaction");

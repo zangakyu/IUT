@@ -6,13 +6,12 @@ import java.util.List;
 
 import com.ninja_squad.dao.SpectacleDAO;
 
-public class SpectacleController {
+public class SpectacleService implements ISpectacleService{
 	SpectacleDAO dao;
 	
-	public SpectacleController( SpectacleDAO dao){
+	public SpectacleService( SpectacleDAO dao){
 		this.dao = dao;
 	}
-	
 
 	public List<String> findSpectacle(String spectacleName) throws IOException {
 		spectacleName = parseSpectacle(spectacleName);
