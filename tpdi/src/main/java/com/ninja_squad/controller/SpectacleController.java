@@ -15,7 +15,7 @@ public class SpectacleController {
 	
 
 	public List<String> findSpectacle(String spectacleName) throws IOException {
-		spectacleName = getSpectacle(spectacleName);
+		spectacleName = parseSpectacle(spectacleName);
 		List<String> spectacles = dao.getSpectacles();
 		List<String> spectaclesFound = new ArrayList<String>();
 
@@ -28,16 +28,16 @@ public class SpectacleController {
 	}
 
 	public boolean createSpectale(String spectacleName) throws IOException {
-		spectacleName = getSpectacle(spectacleName);
+		spectacleName = parseSpectacle(spectacleName);
 		if (!(dao.getSpectacles().contains(spectacleName))) {
-			dao.writeFile(spectacleName);
+			dao.writeSpectacle(spectacleName);
 			return true;
 		} else {
 			return false;
 		}
 	}
 
-	public static String getSpectacle(String s) {
+	public static String parseSpectacle(String s) {
 		String spectacle = "";
 		if (s.contains(" ")) {
 			spectacle = s.substring(s.indexOf(" ") + 1);

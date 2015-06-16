@@ -12,7 +12,7 @@ import java.util.List;
 public class SpectacleDAO {
 	String filePath = "./spectacles.txt";
 	
-	public void writeFile(String toWrite) throws IOException {
+	public void writeSpectacle(String toWrite) throws IOException {
 		try (FileWriter fileWritter = new FileWriter(filePath, true)) {
 			BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
 			bufferWritter.write(toWrite + "\n");
