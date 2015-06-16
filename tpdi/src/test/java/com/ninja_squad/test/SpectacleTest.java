@@ -10,8 +10,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.ninja_squad.controller.SpectacleService;
 import com.ninja_squad.dao.SpectacleDAO;
+import com.ninja_squad.service.SpectacleService;
 
 public class SpectacleTest {
 	

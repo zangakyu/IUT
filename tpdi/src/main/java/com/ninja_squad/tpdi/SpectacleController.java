@@ -3,13 +3,15 @@ package com.ninja_squad.tpdi;
 import java.io.IOException;
 import java.util.Scanner;
 
-import com.ninja_squad.controller.ServiceProxy;
-import com.ninja_squad.controller.SpectacleService;
 import com.ninja_squad.dao.SpectacleDAO;
+import com.ninja_squad.service.ISpectacleService;
+import com.ninja_squad.service.ServiceProxy;
+import com.ninja_squad.service.SpectacleService;
 
 
 public class SpectacleController {
 
+	static ISpectacleService service;
 	/**
 	 * @param args
 	 * @throws IOException
@@ -18,8 +20,8 @@ public class SpectacleController {
 		boolean quit = false;
 		Scanner in = new Scanner(System.in);
 		SpectacleService spectacleService = new SpectacleService(new SpectacleDAO());
-		ServiceProxy service = new ServiceProxy(spectacleService);
-
+		//service = new ServiceProxy(spectacleService);
+		service = spectacleService;
 		while (!quit) {
 			System.out.print(">");
 			String command = in.nextLine();

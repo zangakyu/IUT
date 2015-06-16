@@ -1,20 +1,22 @@
-package com.ninja_squad.tpdi;
+package com.ninja_squad.service;
 
 import java.io.IOException;
 import java.util.List;
 
-import com.ninja_squad.controller.ISpectacleService;
-import com.ninja_squad.controller.SpectacleService;
-import com.ninja_squad.dao.SpectacleDAO;
+public class ServiceProxy implements ISpectacleService {
 
-public class SpectacleServiceOld implements ISpectacleService {
-	SpectacleDAO dao = new SpectacleDAO();
-	SpectacleService spectacleController = new SpectacleService(dao);
 	
+	public SpectacleService spectacleService;
+	
+	public ServiceProxy(SpectacleService spectacleService){
+		this.spectacleService = spectacleService;
+	}
+	
+	@Override
 	public List<String> findSpectacle(String spectacleName) throws IOException {
 		System.out.println("début de transaction");
 		try{
-			List<String> result = spectacleController.findSpectacle(spectacleName);
+			List<String> result = spectacleService.findSpectacle(spectacleName);
 			System.out.println("commit de transaction");
 			return result;
 		}catch(Exception ex){
@@ -22,10 +24,11 @@ public class SpectacleServiceOld implements ISpectacleService {
 			throw ex;
 		}
 	}
-	
+
+	@Override
 	public boolean createSpectale(String spectacleName) throws IOException {
 		System.out.println("début de transaction");
-		if(spectacleController.createSpectale(spectacleName)){
+		if(spectacleService.createSpectale(spectacleName)){
 			System.out.println("commit de transaction");
 			return true;
 		}
@@ -34,4 +37,5 @@ public class SpectacleServiceOld implements ISpectacleService {
 			return false;
 		}
 	}
+
 }

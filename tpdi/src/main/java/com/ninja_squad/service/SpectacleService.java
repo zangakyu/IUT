@@ -1,14 +1,19 @@
-package com.ninja_squad.controller;
+package com.ninja_squad.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.ninja_squad.dao.SpectacleDAO;
 
+@Service
 public class SpectacleService implements ISpectacleService{
 	SpectacleDAO dao;
 	
+	@Autowired
 	public SpectacleService( SpectacleDAO dao){
 		this.dao = dao;
 	}
